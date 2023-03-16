@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Divider, Stack } from "@mui/material";
+import { Divider, Stack, Button } from "@mui/material";
+import Searchbar from "./Searchbar";
 
 function Nav() {
   const navStyle = {
@@ -11,7 +12,7 @@ function Nav() {
   return (
     <Stack
       direction="row"
-      justifyContent="center"
+      justifyContent="space-between"
       divider={<Divider orientation="vertical" flexItem />}
       p={2}
       sx={{
@@ -22,15 +23,13 @@ function Nav() {
       spacing={{ xs: 1, sm: 2, md: 4 }}
     >
       <Link style={navStyle} to={"/"}>
-        <button>Home Page</button>
+        <Button variant="contained">Home Page</Button>
       </Link>
 
       <Link style={navStyle} to={"/topgames"}>
-        <button>Top Games</button>
+      <Button variant="contained">Top Games</Button>
       </Link>
-      <Link style={navStyle} to={"/search"}>
-        <button>Search Games</button>
-      </Link>
+      <Searchbar/>
     </Stack>
   );
 }

@@ -4,8 +4,10 @@ import Home from './Home.js'
 import Nav from "./Nav.js"
 import TopGames from './TopGames.js'
 import Search from './Search.js'
+import Header from './Header.js'
 
-function App() {
+
+const App = () => {
   return (
     <BrowserRouter>
       <div className='App'>
@@ -19,7 +21,7 @@ function App() {
       </div>
 
     </BrowserRouter>
-    )
+  )
 }
 
 export default App

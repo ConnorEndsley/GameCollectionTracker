@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { API_KEY } from "../utils/constants";
 import { Card } from "@mui/material";
 
-function Home() {
+const Home = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);

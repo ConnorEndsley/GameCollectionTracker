@@ -1,23 +1,24 @@
 import React from 'react'
 import { Paper, IconButton } from '@mui/material'
 import { Search} from '@mui/icons-material'
-function Searchbar() {
+
+const Searchbar = () => {
   return (
     <Paper
     component="form"
     sx={{
-        borderRadius: 20,
+        borderRadius: 0,
         border: '1px solid #e3e3e3',
+        backgroundColor: '#444343',
+        borderRadius: '25px',
         p1: 6,
         boxShadow: 'none',
-        mr: { sm: 10},
+        mr: { sm: 2},
     }}
-    elevation={7}
     >
         <input className='search-bar'
         placeholder='Search...'
         value=""
-        onChange={() => {}}
         />
         <IconButton type="submit" sx={{p: '10px', color: 'red'}}>
             <Search />

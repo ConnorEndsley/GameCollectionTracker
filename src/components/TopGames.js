@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TopGames() {
+const TopGames = () => {
   return (
     <div>TopGames</div>
   )

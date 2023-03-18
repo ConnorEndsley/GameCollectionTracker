@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import { Divider, Stack, Button } from "@mui/material";
 import Searchbar from "./Searchbar";
 
-function Nav() {
+const Nav = () => {
   const navStyle = {
     color: "white",
     // display: 'flex',
@@ -17,18 +18,18 @@ function Nav() {
       p={2}
       sx={{
         position: "sticky",
-        background: "red",
         top: 0,
       }}
       spacing={{ xs: 1, sm: 2, md: 4 }}
     >
-      <Link style={navStyle} to={"/"}>
+        <VideogameAssetIcon sx={{ fontSize: 50}}/>
+      {/* <Link style={navStyle} to={"/"}>
         <Button variant="contained">Home Page</Button>
       </Link>
 
       <Link style={navStyle} to={"/topgames"}>
       <Button variant="contained">Top Games</Button>
-      </Link>
+      </Link> */}
       <Searchbar/>
     </Stack>
   );

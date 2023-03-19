@@ -4,32 +4,32 @@ import { API_KEY } from "../utils/constants";
 import { Card, Stack, Box} from "@mui/material";
 
 const Games = () => {
-    const [data, setData] = useState(null);
+    const [games, setGames] = useState(null);
     const [loading, setLoading] = useState(null);
     const [error, setError] = useState(null);
   
     // useEffect to load all games from API on page load
     useEffect(() => {
-      // fetch all game data from the API
+      // fetch all game games from the API
       fetch(`https://api.rawg.io/api/games?key=${API_KEY}`)
         .then((response) => response.json())
   
-        // setting the new data from API to our state
-        .then((data) => {
-          setData(data);
-          console.log(data.results);
+        // setting the new games from API to our state
+        .then((games) => {
+          setGames(games);
+          console.log(games.results);
           setError(null);
         })
   
         .catch((err) => {
           setError(err.message);
-          setData(null);
+          setGames(null);
         });
     }, []);
 
   return (
     <div>
-        {data ? (
+        {games ? (
         <div
           className="homegame-thumbnails"
           style={{
@@ -38,7 +38,7 @@ const Games = () => {
             justifyContent: "space-between",
           }}>
             
-          {data.results.map((game) => (
+          {games.results.map((game) => (
             <Card
               variant="outlined"
               sx={{

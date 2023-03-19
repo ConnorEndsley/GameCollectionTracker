@@ -16,13 +16,14 @@ const Searchbar = () => {
         mr: { sm: 2},
     }}
     >
-        <input className='search-bar'
-        placeholder='Search...'
-        value=""
-        />
-        <IconButton type="submit" sx={{p: '10px', color: 'red'}}>
+              <IconButton type="submit" sx={{p: '10px', color: 'red'}}>
             <Search />
         </IconButton>
+        <input className='search-bar'
+        placeholder='Search for games'
+        value=""
+        />
+
     </Paper>
   )
 }

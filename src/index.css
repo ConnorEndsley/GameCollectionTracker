@@ -4,8 +4,22 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #2c2b2b;
+  height: 100%;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: rgb(114, 113, 113);
+  border-radius: 10px;
+  height: 200px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 /* 
 Start of styling for Navbar
 */
@@ -16,6 +30,7 @@ Start of styling for Navbar
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  position: sticky;
 }
 
 .title{

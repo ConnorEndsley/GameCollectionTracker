@@ -36,6 +36,7 @@ const Games = () => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
+            overflowY: 'hidden'
           }}>
             
           {games.results.map((game) => (

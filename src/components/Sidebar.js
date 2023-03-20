@@ -22,15 +22,21 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <Stack direction="column">
+    <Stack direction="column"
+    sx={{
+      overflowY: 'auto',
+      height: { sx: 'auto', md: '95%' },
+      flexDirection: { md: 'column' },
+      color: 'white'
+   }}>
       <div className="sidebar-title">
-        <h1>SideBar</h1>
+        <h1>Categories</h1>
       </div>
 
       {categories ? (
         <div className="categories">
           {categories.map((category) => (
-            <p>{category.name}</p>
+            <h3>{category.name}</h3>
           ))}
         </div>
       ) : (<p>Working</p>)

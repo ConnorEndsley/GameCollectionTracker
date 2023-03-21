@@ -5,7 +5,9 @@ import { API_KEY } from "../utils/constants";
 
 // API call for getting all video game categories
 
-const Sidebar = () => {
+const selectedCategory = "New"
+
+const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
   const [categories, setCategories] = useState(null);
 
   const categoriesAPICall = () => {
@@ -36,7 +38,17 @@ const Sidebar = () => {
       {categories ? (
         <div className="categories">
           {categories.map((category) => (
-            <h3>{category.name}</h3>
+            <button className="categories-btn">
+            <span style={{
+                color: category.name === selectedCategory ? 'white' : 'red', marginRight: '15px'
+            }}>{category.icon}
+            </span>
+
+            <span style={{
+                opacity: category.name === selectedCategory ? '1' : '0.8'
+            }}>{category.name}
+            </span>
+            </button>
           ))}
         </div>
       ) : (<p>Working</p>)

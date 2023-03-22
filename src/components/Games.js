@@ -44,11 +44,12 @@ const Games = () => {
               variant="outlined"
               sx={{
                 width: { xs: "100%", sm: "358px", md: "320px" },
-                boxShadow: "none",
-                borderRadius: 0,
+                boxShadow: "5px 5px 5px black",
+                borderRadius: "25px",
+                margin: ""
               }}>
 
-              <p className="game-name" style={{ fontFamily: "sans-serif", textAlign: "center" }}>
+              <p className="game-name" style={{ fontFamily: "sans-serif", textAlign: "center", backgroundColor: "" }}>
                 {game.name}
               </p>
 

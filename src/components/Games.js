@@ -1,44 +1,27 @@
-import React from 'react'
+import React from "react";
 import { useEffect, useState } from "react";
-import { API_KEY } from "../utils/constants";
-import { Card, Stack, Box} from "@mui/material";
+import { Card, Stack, Box, CardContent } from "@mui/material";
+import { Link } from "react-router-dom";
+import GameDetails from "./GameDetails";
 
-const Games = () => {
-    const [games, setGames] = useState(null);
-    const [loading, setLoading] = useState(null);
-    const [error, setError] = useState(null);
-  
-    // useEffect to load all games from API on page load
-    useEffect(() => {
-      // fetch all game games from the API
-      fetch(`https://api.rawg.io/api/games?key=${API_KEY}`)
-        .then((response) => response.json())
-  
-        // setting the new games from API to our state
-        .then((games) => {
-          setGames(games);
-          console.log(games.results);
-          setError(null);
-        })
-  
-        .catch((err) => {
-          setError(err.message);
-          setGames(null);
-        });
-    }, []);
+const id = 3498;
+
+const Games = ({games, setGames, error, setError}) => {
+  const [gameId, setGameId] = useState("");
+  const [loading, setLoading] = useState(null);
 
   return (
     <div>
-        {games ? (
+      {games ? (
         <div
           className="homegame-thumbnails"
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "space-between",
-            overflowY: 'hidden'
-          }}>
-            
+            justifyContent: "space-evenly",
+            overflowY: "hidden",
+          }}
+        >
           {games.results.map((game) => (
             <Card
               variant="outlined"
@@ -46,25 +29,44 @@ const Games = () => {
                 width: { xs: "100%", sm: "358px", md: "320px" },
                 boxShadow: "5px 5px 5px black",
                 borderRadius: "25px",
-                margin: ""
-              }}>
-
-              <p className="game-name" style={{ fontFamily: "sans-serif", textAlign: "center", backgroundColor: "" }}>
-                {game.name}
-              </p>
-
-              <img
-                style={{ height: "300px", width: "400px", display: "block", marginRight: "auto", marginLeft: "auto" }}
-                src={game.background_image}
-                alt="screenshot">
-              </img>
+                backgroundColor: "black",
+                color: "white",
+                m: "7px",
+              }}
+            >
+              <CardContent>
+                <Link to={`/game/${id}`}>
+                  <img
+                    style={{
+                      height: "300px",
+                      width: "400px",
+                      display: "block",
+                      marginRight: "auto",
+                      marginLeft: "auto",
+                    }}
+                    src={game.background_image}
+                    alt="screenshot"
+                  ></img>
+                </Link>
+                <h3
+                  className="game-name"
+                  style={{
+                    fontFamily: "sans-serif",
+                    textAlign: "center",
+                    backgroundColor: "",
+                  }}
+                >
+                  {game.name}
+                </h3>
+              </CardContent>
             </Card>
           ))}
         </div>
       ) : (
         <p>Loading...</p>
-      )}</div>
-  )
-}
+      )}
+    </div>
+  );
+};
 
-export default Games
+export default Games;

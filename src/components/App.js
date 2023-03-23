@@ -5,6 +5,7 @@ import Nav from "./NavComponents/Nav.js"
 import TopGames from './TopGames.js'
 import Search from './Search.js'
 import Header from './Header.js'
+import GameDetails from './GameDetails.js'
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Routes> 
         <Route path='/' Component={Home}/>
         <Route exact path='/topgames' Component={TopGames}/>
+        <Route path='/game/:id' element={<GameDetails/>}/>
         <Route exact path='/search' Component={Search}/>
       </Routes>
     </BrowserRouter>

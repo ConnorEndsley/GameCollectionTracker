@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Card, Stack, Box, CardContent } from "@mui/material";
+import { Card, Stack, Box, CardContent, CardMedia } from "@mui/material";
 import { Link } from "react-router-dom";
 import GameDetails from "./GameDetails";
 
 const id = 3498;
 
-const Games = ({games, setGames, error, setError}) => {
+const Games = ({ games, setGames, error, setError }) => {
   const [gameId, setGameId] = useState("");
   const [loading, setLoading] = useState(null);
 
@@ -34,31 +34,27 @@ const Games = ({games, setGames, error, setError}) => {
                 m: "7px",
               }}
             >
-              <CardContent>
-                <Link to={`/game/${id}`}>
-                  <img
-                    style={{
-                      height: "300px",
-                      width: "400px",
-                      display: "block",
-                      marginRight: "auto",
-                      marginLeft: "auto",
-                    }}
-                    src={game.background_image}
-                    alt="screenshot"
-                  ></img>
-                </Link>
-                <h3
-                  className="game-name"
-                  style={{
-                    fontFamily: "sans-serif",
-                    textAlign: "center",
-                    backgroundColor: "",
+              <Link to={`/game/${id}`}>
+                <CardMedia
+                  image={game.background_image}
+                  sx={{
+                    padding: 0,
+                    height: 400,
+                    width: "100%",
                   }}
-                >
-                  {game.name}
-                </h3>
-              </CardContent>
+                ></CardMedia>
+              </Link>
+
+              <h3
+                className="game-name"
+                style={{
+                  fontFamily: "sans-serif",
+                  textAlign: "center",
+                  backgroundColor: "",
+                }}
+              >
+                {game.name}
+              </h3>
             </Card>
           ))}
         </div>

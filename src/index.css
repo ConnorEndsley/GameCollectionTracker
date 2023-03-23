@@ -58,6 +58,8 @@ input{
 End Navbar styles
 */
 
+
+/* Sidebar styles */
 .categories-btn{
   font-weight: bold !important;
   text-transform: capitalize;
@@ -76,3 +78,13 @@ End Navbar styles
   transition: all 0.3s ease;
 }
 
+/* Game card styles */
+
+.game-img-wrapper{
+
+}
+
+.game-screenshot{
+object-fit: scale-down;
+width: 300px;
+}

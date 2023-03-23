@@ -7,6 +7,7 @@ import Searchbar from "./Searchbar";
 const Nav = () => {
   const navStyle = {
     color: "white",
+    textDecoration: "none"
     // display: 'flex',
     // flexDirection:'center'
   };
@@ -22,14 +23,14 @@ const Nav = () => {
     >
       <div className="nav-container">
         <div className="header-item">
-          <div className="title">Game-Hub <VideogameAssetIcon sx={{ fontSize: 50}}/></div>
+          <Link to={"/"} style={navStyle} >
+          <div className="title">Game-Hub <VideogameAssetIcon sx={{ fontSize: 50}}/>      
+          </div>
+      </Link>
         </div>
       <div className="saerch-container">
       <Searchbar/>
       </div>
-      <Link style={navStyle} to={"/"}>
-        <Button variant="contained">Home Page</Button>
-      </Link>
 
       <Link style={navStyle} to={"/topgames"}>
       <Button variant="contained">Top Games</Button>

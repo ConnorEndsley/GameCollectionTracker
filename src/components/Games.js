@@ -4,12 +4,15 @@ import { Card, Stack, Box, CardContent, CardMedia } from "@mui/material";
 import { Link } from "react-router-dom";
 import GameDetails from "./GameDetails";
 
-const id = 3498;
 
 const Games = ({ games, setGames, error, setError }) => {
   const [gameId, setGameId] = useState("");
   const [loading, setLoading] = useState(null);
 
+ const getGameId = () => {
+    
+ }
+ 
   return (
     <div>
       {games ? (
@@ -34,7 +37,7 @@ const Games = ({ games, setGames, error, setError }) => {
                 m: "7px",
               }}
             >
-              <Link to={`/game/${id}`}>
+              <Link to={`/games/${game.id}`}>
                 <CardMedia
                   image={game.background_image}
                   sx={{

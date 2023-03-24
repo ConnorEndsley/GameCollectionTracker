@@ -15,7 +15,7 @@ const App = () => {
       <Routes> 
         <Route path='/' Component={Home}/>
         <Route exact path='/topgames' Component={TopGames}/>
-        <Route path='/game/:id' element={<GameDetails/>}/>
+        <Route path='/games/:id' element={<GameDetails/>}/>
         <Route exact path='/search' Component={Search}/>
       </Routes>
     </BrowserRouter>

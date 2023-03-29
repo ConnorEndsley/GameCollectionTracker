@@ -6,6 +6,8 @@ import TopGames from './TopGames.js'
 import Search from './Search.js'
 import Header from './Header.js'
 import GameDetails from './GameDetails.js'
+import MainFeed from './MainFeed.js'
+import Sidebar from './Sidebar.js'
 
 
 const App = () => {

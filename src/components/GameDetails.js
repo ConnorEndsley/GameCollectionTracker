@@ -1,51 +1,64 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { API_KEY } from '../utils/constants';
-import { Box } from '@mui/system';
-import { Card, CardMedia } from '@mui/material';
+import React from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { API_KEY } from "../utils/constants";
+import { Box } from "@mui/system";
+import { Card, CardMedia } from "@mui/material";
+import Sidebar from "./Sidebar";
 
 const GameDetails = () => {
-  const [ gameDetails, setGamesDetails ] = useState(null)
+  const [gameDetails, setGamesDetails] = useState(null);
 
-  // useParams returns an object of 
-  const {id} = useParams(); 
+  // useParams returns an object of
+  const { id } = useParams();
 
   useEffect(() => {
-    console.log("working")
-    const url = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
-    console.log(url)
+    console.log("working");
+    const url = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
+    console.log(url);
     fetch(url)
-    .then((response) => {
-      return response.json()})
-    .then((
-      data => {setGamesDetails(data)}
-    ))
-  }, [])
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setGamesDetails(data);
+      });
+  }, []);
 
-  console.log(gameDetails)
+  console.log(gameDetails);
   return (
     <>
-    {
-      gameDetails ? 
+      {gameDetails ? (
+        <Card>
+          <div className="column-wrapper">
+            <div className="sidebar-container">
+              <Sidebar />
+            </div>
 
-      <Card>
-       <div className='game-title'>
-       {gameDetails.name} 
-        </div>  
-        <CardMedia
-        component="img"
-        height="500"
-        image
-        />
+            <div className="left-column">
+              <div className="game-title">{gameDetails.name}</div>
 
+              <div className="about">
+                <h2>About</h2>
+                <div className="description">{gameDetails.description_raw}</div>
+              </div>
+            </div>
 
-      </Card> 
-      
-      : <h2>Loading...</h2>
-    }
+            <div className="right-column">
+              <CardMedia
+                component="img"
+                height="500"
+                width="400"
+                src={gameDetails.background_image}
+              />
+            </div>
+          </div>
+        </Card>
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default GameDetails
+export default GameDetails;

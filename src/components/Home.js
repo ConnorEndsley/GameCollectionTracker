@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MainFeed from "./MainFeed";
+import Sidebar from "./Sidebar";
 
 
 const Home = () => {

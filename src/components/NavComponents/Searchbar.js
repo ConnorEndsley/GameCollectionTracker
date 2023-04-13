@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Paper, IconButton } from '@mui/material'
 import { Search} from '@mui/icons-material'
 
 const Searchbar = () => {
+
+  // initializing state of searchTerms and results
+  const [searchTerm, setSearchTerm] = useState("");
+  const [gameResults, setGameResults] = useState([]);
+
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  }
+
+  const onSubmit = (event) => {
+    event.preventDefault()
+    let slug = searchTerm.split('').join('-').toLowerCase();
+    
+    setGameResults([]);
+    fetch()
+  }
+
   return (
     <Paper
     component="form"

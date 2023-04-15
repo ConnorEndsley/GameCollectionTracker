@@ -1,48 +1,48 @@
-import React, { useState } from 'react'
-import { Paper, IconButton } from '@mui/material'
-import { Search} from '@mui/icons-material'
+import React, { useState } from "react";
+import { Paper, IconButton } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
 
 const Searchbar = () => {
-
-  // initializing state of searchTerms and results
+  // initializing state of searchTerms and useNavigate
   const [searchTerm, setSearchTerm] = useState("");
-  const [gameResults, setGameResults] = useState([]);
+  const navigate = useNavigate();
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  }
+  const onhandleSubmit = (e) => {
+    e.preventDefault();
 
-  const onSubmit = (event) => {
-    event.preventDefault()
-    let slug = searchTerm.split('').join('-').toLowerCase();
-    
-    setGameResults([]);
-    fetch()
-  }
+    if (searchTerm) {
+      navigate(`/search/${searchTerm}`);
+
+      setSearchTerm("");
+    }
+  };
 
   return (
     <Paper
-    component="form"
-    sx={{
+      component="form"
+      onSubmit={onhandleSubmit}
+      sx={{
         borderRadius: 0,
-        border: '1px solid #e3e3e3',
-        backgroundColor: '#444343',
-        borderRadius: '25px',
+        border: "1px solid #e3e3e3",
+        backgroundColor: "#444343",
+        borderRadius: "25px",
         p1: 6,
-        boxShadow: 'none',
-        mr: { sm: 2},
-    }}
+        boxShadow: "none",
+        mr: { sm: 2 },
+      }}
     >
-              <IconButton type="submit" sx={{p: '10px', color: 'red'}}>
-            <Search />
-        </IconButton>
-        <input className='search-bar'
-        placeholder='Search for games'
-        value=""
-        />
-
+      <input
+        className="search-bar"
+        placeholder="Search for games"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <IconButton type="submit" sx={{ p: "10px", color: "red" }}>
+        <SearchIcon />
+      </IconButton>
     </Paper>
-  )
-}
+  );
+};
 
-export default Searchbar
+export default Searchbar;

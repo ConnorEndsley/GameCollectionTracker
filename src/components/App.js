@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import Home from './Home.js'
 import Nav from "./NavComponents/Nav.js"
 import TopGames from './TopGames.js'
-import Search from './Search.js'
+import SearchFeed from './SearchFeed.js'
 import Header from './Header.js'
 import GameDetails from './GameDetails.js'
 import MainFeed from './MainFeed.js'
@@ -18,7 +18,7 @@ const App = () => {
         <Route path='/' Component={Home}/>
         <Route exact path='/topgames' Component={TopGames}/>
         <Route path='/games/:id' element={<GameDetails/>}/>
-        <Route exact path='/search' Component={Search}/>
+        <Route exact path='/search/:searchTerm' Component={SearchFeed}/>
       </Routes>
     </BrowserRouter>
   )

@@ -26,6 +26,6 @@ const getSearchedGames = () => {
 console.log(getSearchedGames())
 
 
-app.listen(3000, function(){
+app.listen(4000, function(){
     console.log("Server is up on localhost:3000")
 })

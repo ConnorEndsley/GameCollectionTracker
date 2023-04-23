@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar";
 
 const GameDetails = () => {
   const [gameDetails, setGamesDetails] = useState(null);
+  const [platforms, setPlatforms] = useState(null)
 
   // useParams returns an object of
   const { id } = useParams();
@@ -23,9 +24,22 @@ const GameDetails = () => {
       .then((data) => {
         setGamesDetails(data);
       });
-  }, []);
 
-  console.log(gameDetails);
+
+      
+    }, []);
+
+    // const gamePlatforms = gameDetails.platforms;
+    // console.log(gamePlatforms)
+
+
+  // function to extract the selected game's platform from API game data
+
+
+  // console.log(getGamePlatforms())
+
+
+
   return (
     <>
       {gameDetails ? (
@@ -51,6 +65,35 @@ const GameDetails = () => {
                 width="400"
                 src={gameDetails.background_image}
               />
+
+              <div className="ratings">
+                <h2>
+                  Metacritic Rating
+                  </h2>
+                  <span>
+                    <img
+                      src="../metacritic-logo.png"
+                      alt="metcritic logo"
+                      style={{
+                        width: 50,
+                        height: 50,
+                      }}
+                    ></img>
+
+                  </span>
+                  <div>:{gameDetails.metacritic}</div>
+              </div>
+
+              <div>
+              {
+                gameDetails.platforms.map((platform) => (
+                  <h3>
+                  {platform.name}
+                  </h3>
+                ))
+              }
+              </div>
+
             </div>
           </div>
         </Card>

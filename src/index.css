@@ -130,3 +130,14 @@ width: 300px;
   left: 0;
   overflow-y: auto;
 }
+
+/* 
+gameDetails page styles
+VVVVV
+*/
+
+.ratings{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

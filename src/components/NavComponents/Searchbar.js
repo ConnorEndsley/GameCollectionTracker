@@ -1,47 +1,54 @@
 import React, { useState } from "react";
 import { Paper, IconButton } from "@mui/material";
-import  SearchIcon  from "@mui/icons-material/Search";
+import SearchIcon from "@mui/icons-material/Search";
+import axios from "axios";
 
 const Searchbar = () => {
-  // initializing state of searchTerms and results
   const [searchTerm, setSearchTerm] = useState("");
-  const [gameResults, setGameResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-    setSearchTerm(event.preventDefault());
+  const handleSearch = (event) => {
+    event.preventDefault();
 
-    let slug = searchTerm.split("").join("-").toLowerCase();
-
-    console.log(slug);
+    axios
+      .get(`/api/searched-games?searchTerm=${searchTerm}`)
+      .then((response) => {
+        setSearchResults(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const onChange = (event) => {};
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <Paper
       component="form"
       sx={{
-        borderRadius: 0,
+        borderRadius: "25px",
         border: "1px solid #e3e3e3",
         backgroundColor: "#444343",
-        borderRadius: "25px",
         p1: 6,
         boxShadow: "none",
         mr: { sm: 2 },
       }}
     >
       <IconButton type="submit" sx={{ p: "10px", color: "white" }}>
-        <SearchIcon/>
+        <SearchIcon />
       </IconButton>
       <input
         className="search-bar"
         placeholder="Search for games"
         value={searchTerm}
-        onChange={handleChange}
+        onChange={handleInputChange}
       />
     </Paper>
+    
   );
 };
 
 export default Searchbar;
+

@@ -12,6 +12,8 @@ const GameDetails = () => {
   // useParams returns an object of
   const { id } = useParams();
 
+
+  
   useEffect(() => {
     console.log("working");
     const url = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
@@ -23,9 +25,10 @@ const GameDetails = () => {
       .then((data) => {
         setGamesDetails(data);
       });
-  }, []);
+      // pass in id as the dependancy array so that useEffect will only be called again when the id changes
+  }, [id]);
 
-  console.log(gameDetails);
+
   return (
     <>
       {gameDetails ? (

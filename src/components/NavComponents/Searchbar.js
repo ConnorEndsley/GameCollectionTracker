@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import Results from '../Results.js'
 import axios from "axios";
 
 const Searchbar = () => {
@@ -24,7 +25,11 @@ const Searchbar = () => {
     setSearchTerm(event.target.value);
   };
 
+
   return (
+    <div>
+
+
     <Paper
       component="form"
       sx={{
@@ -46,7 +51,8 @@ const Searchbar = () => {
         onChange={handleInputChange}
       />
     </Paper>
-    
+    <Results searchResults={searchResults} setSearchResults={setSearchResults}/>
+    </div>
   );
 };
 

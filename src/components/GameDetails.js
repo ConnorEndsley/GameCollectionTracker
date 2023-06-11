@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { API_KEY } from "../utils/constants";
 import { Box } from "@mui/system";
-import { Card, CardMedia } from "@mui/material";
+import { Card, CardMedia, Stack } from "@mui/material";
 import Sidebar from "./Sidebar";
 
 const GameDetails = () => {
@@ -25,16 +25,12 @@ const GameDetails = () => {
       });
   }, []);
 
-  console.log(gameDetails);
+  console.log("gameDetails page", gameDetails);
   return (
     <>
       {gameDetails ? (
-        <Card>
+        <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
           <div className="column-wrapper">
-            <div className="sidebar-container">
-              <Sidebar />
-            </div>
-
             <div className="left-column">
               <div className="game-title">{gameDetails.name}</div>
 
@@ -42,18 +38,32 @@ const GameDetails = () => {
                 <h2>About</h2>
                 <div className="description">{gameDetails.description_raw}</div>
               </div>
+              <div className="genres">
+                  <h3>Game Genres</h3>
+                  {gameDetails.genres.map((genre) => (
+                    <p>{genre.name}</p>
+                  ))}
+                </div>
             </div>
 
             <div className="right-column">
-              <CardMedia
-                component="img"
-                height="500"
-                width="400"
-                src={gameDetails.background_image}
-              />
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="500"
+                  width="400"
+                  src={gameDetails.background_image}
+                />
+              <div className="ratings">
+                  <p>Metacritic Score: {gameDetails.metacritic}</p>
+                </div>
+
+
+              </Card>
+
             </div>
           </div>
-        </Card>
+        </Stack>
       ) : (
         <h2>Loading...</h2>
       )}

@@ -28,7 +28,7 @@ const Nav = () => {
           </div>
       </Link>
         </div>
-      <div className="saerch-container">
+      <div className="search-container">
       <Searchbar/>
       </div>
 

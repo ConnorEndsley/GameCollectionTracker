@@ -12,7 +12,7 @@ app.get('/api', (req, res) => {
 
 const API_KEY = "15ba8addfc0a4ffe83ccfb905b2e0048";
 
-app.get('/api/searched-games', (req, res) => {
+app.get('/api/searched-games/', (req, res) => {
     const searchTerm = req.query.searchTerm;
     if (!searchTerm) {
       return res.status(400).send('Search term is required');

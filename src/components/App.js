@@ -8,20 +8,24 @@ import Header from './Header.js'
 import GameDetails from './GameDetails.js'
 import MainFeed from './MainFeed.js'
 import Sidebar from './Sidebar.js'
+import SearchResults from './SearchResults.js'
 
 
 const App = () => {
+
+  
   return (
     <BrowserRouter>
         <Nav/>
       <Routes> 
         <Route path='/' Component={Home}/>
-        <Route exact path='/topgames' Component={TopGames}/>
+        <Route exact path='/topgames' component={TopGames}/>
         <Route path='/games/:id' element={<GameDetails/>}/>
-        <Route exact path='/search' Component={Search}/>
+        <Route exact path='/search' component={Search}/>
+        <Route path='/search-results/:searchTerm' element={<SearchResults/> }/>
       </Routes>
     </BrowserRouter>
   )
 }
 
-export default App
+export default App  

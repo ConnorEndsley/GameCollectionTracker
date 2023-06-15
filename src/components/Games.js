@@ -9,9 +9,6 @@ const Games = ({ games, setGames, error, setError }) => {
   const [gameId, setGameId] = useState("");
   const [loading, setLoading] = useState(null);
 
- const getGameId = () => {
-    
- }
  
   return (
     <div>

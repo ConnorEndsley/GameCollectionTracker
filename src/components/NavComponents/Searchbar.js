@@ -33,7 +33,8 @@ const Searchbar = () => {
   };
 
   const handleNoResults = () => {
-console.log("could not find any games")  }
+    console.log("could not find any games");
+  };
 
   return (
     <>
@@ -59,10 +60,16 @@ console.log("could not find any games")  }
           onChange={handleInputChange}
         />
       </Paper>
-        {searchResults.length > 0 ? <SearchResults searchResults={searchResults} setSearchResults={setSearchResults}/> : handleNoResults()}
+      {searchResults.length > 0 ? (
+        <SearchResults
+          searchResults={searchResults}
+          setSearchResults={setSearchResults}
+        />
+      ) : (
+        handleNoResults()
+      )}
     </>
   );
 };
 
 export default Searchbar;
-

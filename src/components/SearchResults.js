@@ -10,7 +10,11 @@ useEffect(() => {
 
   // call the onSearchResults function with the search results
 
-  return <div>Filler for now</div>;
+  return(
+    <div>
+      
+    </div>
+  )
 };
 
 export default SearchResults;

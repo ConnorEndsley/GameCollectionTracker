@@ -9,6 +9,7 @@ import GameDetails from './GameDetails.js'
 import MainFeed from './MainFeed.js'
 import Sidebar from './Sidebar.js'
 import SearchResults from './SearchResults.js'
+import Searchbar from './NavComponents/Searchbar.js'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <BrowserRouter>
         <Nav/>
+        <Searchbar/>
       <Routes> 
         <Route path='/' Component={Home}/>
         <Route exact path='/topgames' component={TopGames}/>

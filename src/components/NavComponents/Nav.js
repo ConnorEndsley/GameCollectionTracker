@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
+import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 import { Divider, Stack, Button } from "@mui/material";
 import Searchbar from "./Searchbar";
 
 const Nav = () => {
   const navStyle = {
     color: "white",
-    textDecoration: "none"
+    textDecoration: "none",
     // display: 'flex',
     // flexDirection:'center'
   };
@@ -23,22 +23,17 @@ const Nav = () => {
     >
       <div className="nav-container">
         <div className="header-item">
-          <Link to={"/"} style={navStyle} >
-          <div className="title">Game-Hub <VideogameAssetIcon sx={{ fontSize: 50}}/>      
-          </div>
-      </Link>
+          <Link to={"/"} style={navStyle}>
+            <div className="title">
+              Game-Hub <VideogameAssetIcon sx={{ fontSize: 50 }} />
+            </div>
+          </Link>
         </div>
-      <div className="saerch-container">
-      <Searchbar/>
-      </div>
 
-      <Link style={navStyle} to={"/topgames"}>
-      <Button variant="contained">Top Games</Button>
-      </Link>
+        <Link style={navStyle} to={"/topgames"}></Link>
       </div>
-
     </Stack>
   );
-}
+};
 
 export default Nav;

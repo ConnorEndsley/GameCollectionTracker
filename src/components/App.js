@@ -1,15 +1,12 @@
 import React from 'react'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import Home from './Home.js'
-import Nav from "./NavComponents/Nav.js"
 import TopGames from './TopGames.js'
 import Search from './Search.js'
-import Header from './Header.js'
 import GameDetails from './GameDetails.js'
-import MainFeed from './MainFeed.js'
-import Sidebar from './Sidebar.js'
 import SearchResults from './SearchResults.js'
-import Searchbar from './NavComponents/Searchbar.js'
+import Header from './Header.js'
+import About from './About.js'
 
 
 const App = () => {
@@ -17,13 +14,12 @@ const App = () => {
   
   return (
     <BrowserRouter>
-        <Nav/>
-        <Searchbar/>
+      <Header/>
       <Routes> 
-        <Route path='/' Component={Home}/>
-        <Route exact path='/topgames' component={TopGames}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/games/:id' element={<GameDetails/>}/>
-        <Route exact path='/search' component={Search}/>
+        <Route exact path='/search' element={<Search/>}/>
+        <Route path='/about' element={<About/>}/>
         <Route path='/search-results/:searchTerm' element={<SearchResults/> }/>
       </Routes>
     </BrowserRouter>

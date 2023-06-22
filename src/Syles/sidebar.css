@@ -1,0 +1,21 @@
+.categories-btn{
+    font-weight: bold !important;
+    text-transform: capitalize;
+    cursor:pointer;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    outline: none;
+    border: 2px solid black;
+    width: 150px;
+    color: white;
+  
+    padding: 7px 15px;
+    margin: 10px 0px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .categories{
+    overflow-y: scroll;
+  }

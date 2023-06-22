@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Stack } from "@mui/system";
 import { API_KEY } from "../utils/constants";
+import "../Syles/sidebar.css"
 
 // API call for getting all video game categories
 

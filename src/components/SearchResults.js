@@ -1,18 +1,17 @@
+import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
 import React from "react";
 import {useEffect} from 'react';
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
-const SearchResults = ( {searchResults, setSearchResults} ) => {
-  
+const SearchResults = () => {
+  let { state } = useLocation();
+  console.log("IN RESULTS COMPOENTN", state)
 
-useEffect(() => {
-  console.log(searchResults)
-}, [])
-
-  // call the onSearchResults function with the search results
 
   return(
     <div>
-      
+      SearchResults page
     </div>
   )
 };

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link, json } from "react-router-dom";
 import { API_KEY } from "../utils/constants";
-import { Card, CardMedia} from "@mui/material";
+import { Card, CardMedia, Rating, TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import "../Syles/search.css";
+import { BorderColor } from "@mui/icons-material";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,42 +29,79 @@ const Search = () => {
     }
   };
 
-  console.log(gameResults);
-
   return (
     <div className="game-search">
-      <h1>Search Games</h1>
-      <input type="text" value={searchTerm} onChange={handleChange} />
-      <button type="submit" onClick={onSubmit}>
-        Search
-      </button>
+      <h1 className="search-title">Search Games</h1>
+      <div className="searchbar-container">
+        <TextField
+          id="outlined-basic"
+          label="Search Games..."
+          variant="filled"
+          value={searchTerm}
+          onChange={handleChange}
+          style={{
+            backgroundColor: "white",
+            borderColor: "white",
+          }}
+        />
+        <button type="submit" onClick={onSubmit} className="search-btn">
+          <SearchIcon />
+        </button>
+      </div>
+
       <div className="search-data">
         {gameResults ? (
-          gameResults.map((game) => (
-            <Card
-              variant="outlined"
-              sx={{
-                width: { xs: "100%", sm: "358px", md: "320px" },
-                boxShadow: "5px 5px 5px black",
-                borderRadius: "25px",
-                backgroundColor: "black",
-                color: "white",
-                m: "7px",
-              }}
-            >
-               <Link to={`/games/${game.id}`}>
-                <CardMedia
-                  image={game.background_image}
-                  sx={{
-                    padding: 0,
-                    height: 400,
-                    width: "100%",
-                  }}
-                ></CardMedia>
-              </Link>
-              <p>{game.name} <br></br> Rating: {game.rating}/5</p>
-            </Card>
-          ))
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-evenly",
+              overflowY: "hidden",
+            }}
+          >
+            {gameResults.map((game) => (
+              <Card
+                variant="outlined"
+                sx={{
+                  width: { xs: "100%", sm: "358px", md: "320px" },
+                  boxShadow: "5px 5px 5px black",
+                  borderRadius: "25px",
+                  backgroundColor: "black",
+                  color: "white",
+                  m: "7px",
+                }}
+              >
+                <Link to={`/games/${game.id}`}>
+                  <CardMedia
+                    image={game.background_image}
+                    sx={{
+                      padding: 0,
+                      height: 300,
+                      width: "100%",
+                    }}
+                  ></CardMedia>
+                </Link>
+                <p>
+                  {game.name} <br></br>{" "}
+                  <Rating
+                    name="rating"
+                    value={game.rating}
+                    precision={0.1}
+                    readOnly
+                  />
+                </p>
+                <p>
+                  {" "}
+                  ESRB Rating:{" "}
+                  {game.esrb_rating ? (
+                    game.esrb_rating.name
+                  ) : (
+                    <p>Not Rated</p>
+                  )}
+                </p>
+              </Card>
+            ))}
+          </div>
         ) : (
           <p>Loading....</p>
         )}

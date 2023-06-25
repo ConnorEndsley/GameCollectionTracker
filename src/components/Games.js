@@ -1,15 +1,20 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Card, Stack, Box, CardContent, CardMedia } from "@mui/material";
+import {
+  Card,
+  Stack,
+  Box,
+  CardContent,
+  CardMedia,
+  Pagination,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import GameDetails from "./GameDetails";
-
 
 const Games = ({ games, setGames, error, setError }) => {
   const [gameId, setGameId] = useState("");
   const [loading, setLoading] = useState(null);
 
- 
   return (
     <div>
       {games ? (
@@ -39,7 +44,7 @@ const Games = ({ games, setGames, error, setError }) => {
                   image={game.background_image}
                   sx={{
                     padding: 0,
-                    height: 400,
+                    height: 300,
                     width: "100%",
                   }}
                 ></CardMedia>
@@ -61,6 +66,7 @@ const Games = ({ games, setGames, error, setError }) => {
       ) : (
         <p>Loading...</p>
       )}
+      <Pagination count={10} variant="outlined" color="primary"></Pagination>
     </div>
   );
 };

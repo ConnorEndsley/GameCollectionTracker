@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
-import { Box, Stack } from "@mui/material";
+import { Box, Pagination, Stack } from "@mui/material";
 import Games from "./Games";
 import { API_KEY } from "../utils/constants";
 

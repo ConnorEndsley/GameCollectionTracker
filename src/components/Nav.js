@@ -21,10 +21,12 @@ const Nav = () => {
         </Link>
       </div>
       <div className="right-header">
-        <Link to={'/search'}>
-          <button>Search Games Here</button>
+        <Link to={"/search"}>
+          <Button>Search</Button>
         </Link>
-        <Link to={'about'}><button>About</button></Link>
+        <Link to={"about"}>
+         <Button>About</Button>
+        </Link>
       </div>
     </div>
   );

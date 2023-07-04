@@ -1,0 +1,39 @@
+.column-wrapper{
+  display: flex;
+  flex-direction: row;
+  background-color: #2c2b2b;
+  justify-content: center;
+}
+
+.left-column{
+    width: 60%;
+    margin: 50px;
+  }
+  
+  .right-column{
+    width: 40%;
+    margin: 50px;
+  }
+
+  .meta-title{
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: hsla(0, 0%, 100%, 0.289);
+  }
+
+  .meta-text{
+    font-size: 14px;
+  }
+
+  #green{
+    color: greenyellow;
+  }
+
+  #yellow {
+    color: yellow;
+  }
+
+  #red{
+    color: red;
+  }

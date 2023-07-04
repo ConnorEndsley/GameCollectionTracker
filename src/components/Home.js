@@ -41,7 +41,7 @@ const Home = () => {
             px: { sx: 0, md: 2 },
           }}
         >
-          <Sidebar />
+          <Sidebar games={games} setGames={setGames} />
         </Box>
 
         <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>

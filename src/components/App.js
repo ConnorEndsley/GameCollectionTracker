@@ -4,8 +4,8 @@ import Home from "./Home.js";
 import Search from "./Search.js";
 import GameDetails from "./GameDetails.js";
 import Header from "./Header.js";
-import About from "./About.js";
 import { FormControlLabel, Switch } from "@mui/material";
+import Categories from "./Categories.js";
 
 export const ThemeContext = createContext(null);
 
@@ -26,7 +26,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/games/:id" element={<GameDetails />} />
             <Route exact path="/search" element={<Search />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/categories" element={<Categories />} />
           </Routes>
         </BrowserRouter>
       </div>

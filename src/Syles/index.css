@@ -58,22 +58,9 @@ width: 300px;
   Styles for gameDetails page
 */
 
-.column-wrapper{
-  display: flex;
-  flex-direction: row;
-  background-color: #2c2b2b;
-  justify-content: center;
-}
 
-.left-column{
-  width: 25%;
-  margin: auto;
-}
 
-.right-column{
-  width: 25%;
-  margin: auto;
-}
+
 
 .game-title{
   font-size: 72px;

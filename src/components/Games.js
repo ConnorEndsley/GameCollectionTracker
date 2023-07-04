@@ -7,6 +7,9 @@ import {
   CardContent,
   CardMedia,
   Pagination,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import GameDetails from "./GameDetails";
@@ -60,6 +63,17 @@ const Games = ({ games, setGames, error, setError }) => {
               >
                 {game.name}
               </h3>
+              <ul className="listDetails">
+                <li>Released: {game.released}</li>
+                <li className="genres">
+                  Genre:{" "}
+                  {game.genres.map((genre) => (
+                    <p>{genre.name}</p>
+                  ))}
+                </li>
+                <li></li>
+                <li></li>
+              </ul>
             </Card>
           ))}
         </div>

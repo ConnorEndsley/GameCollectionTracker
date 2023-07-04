@@ -1,6 +1,8 @@
 .nav-container{
     width: 100%;
     position: sticky;
+    margin: auto;
+    width: fit-content;
   }
 
   .title{
@@ -14,4 +16,3 @@
     cursor: pointer;
   }
 
-  

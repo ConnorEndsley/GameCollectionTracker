@@ -24,8 +24,8 @@ const Nav = () => {
         <Link to={"/search"}>
           <Button>Search</Button>
         </Link>
-        <Link to={"about"}>
-         <Button>About</Button>
+        <Link to={"/categories"}>
+         <Button>Browse Categories</Button>
         </Link>
       </div>
     </div>

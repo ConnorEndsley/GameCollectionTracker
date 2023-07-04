@@ -10,10 +10,12 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [gameResults, setGameResults] = useState([]);
 
+  // handle when the user types in the input field
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
+  // on submit, the api call will initiate and grab the data based on the users search term and update the state
   const onSubmit = async (event) => {
     event.preventDefault();
 
@@ -31,7 +33,7 @@ const Search = () => {
 
   return (
     <div className="game-search">
-      <h1 className="search-title">Search Games</h1>
+      <h1 className="search-title">Search some games here!</h1>
       <div className="searchbar-container">
         <TextField
           id="outlined-basic"
@@ -89,16 +91,9 @@ const Search = () => {
                     precision={0.1}
                     readOnly
                   />
-                </p>
-                <p>
-                  {" "}
-                  ESRB Rating:{" "}
-                  {game.esrb_rating ? (
-                    game.esrb_rating.name
-                  ) : (
-                    <p>Not Rated</p>
-                  )}
-                </p>
+                </p>{" "}
+                ESRB:{" "}
+                {game.esrb_rating ? game.esrb_rating.name : <p>Not Rated</p>}
               </Card>
             ))}
           </div>
